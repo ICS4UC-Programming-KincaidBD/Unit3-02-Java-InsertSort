@@ -1,16 +1,26 @@
-// these imports help read and write files
+/*
+@author KincaidBD
+@since 2026-11-26
+@version 1.0
+*/
+
 // imports
-import java.util.Arrays;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-// this class contains the sorting code
-// this method sorts the numbers from smallest to largest
-public class InsertSort {
+
+/**
+ * This method sorts the numbers from smallest to largest using insertion sort.
+ * @param arr the array of numbers to sort UNUSED
+ * @return the sorted array
+ */
+public final class InsertSort {
+    // private constructor to prevent instantiation
+    private InsertSort() {
+    }
     // start with the second number
-    public int[] InsertionSort(int[] arr) {
+    public int[] insertionSort(final int[] arr) {
         int n = arr.length;
         // save the number we are placing
         for (int i = 1; i < n; i++) {
@@ -28,9 +38,11 @@ public class InsertSort {
     }
 
     // set the input and output file locations
-    public static void main(String[] args) {
-        File inputFile = new File("/home/vscode/ICS4UC/Unit3/Unit3-02/Unit3-02-Java-InsertSort/input.txt");
-        File outputFile = new File("/home/vscode/ICS4UC/Unit3/Unit3-02/Unit3-02-Java-InsertSort/output.txt");
+    public static void main(final String[] args) {
+        File inputFile = new File(
+            "/home/vscode/ICS4UC/Unit3/Unit3-02/Unit3-02-Java-InsertSort/input.txt");
+        File outputFile = new File(
+            "/home/vscode/ICS4UC/Unit3/Unit3-02/Unit3-02-Java-InsertSort/output.txt");
         // read each line and handle file errors
 
         try {
@@ -46,7 +58,7 @@ public class InsertSort {
 
                 // sort the numbers
                 InsertSort sorter = new InsertSort();
-                numbers = sorter.InsertionSort(numbers);
+                numbers = sorter.insertionSort(numbers);
 
                 // add the sorted numbers to the output file
                 FileWriter writer = new FileWriter(outputFile, true);
